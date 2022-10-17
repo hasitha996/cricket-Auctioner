@@ -1,0 +1,49 @@
+﻿@model CrickAuctioner.Models.Team
+
+@{
+    ViewData["Title"] = "Create";
+}
+
+<h1>Create</h1>
+
+<h4>Team</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="TeamName" class="control-label"></label>
+                <input asp-for="TeamName" class="form-control" />
+                <span asp-validation-for="TeamName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamOwner" class="control-label"></label>
+                <input asp-for="TeamOwner" class="form-control" />
+                <span asp-validation-for="TeamOwner" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="TeamBudget" class="control-label"></label>
+                <input asp-for="TeamBudget" class="form-control" />
+                <span asp-validation-for="TeamBudget" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="CreatedBy" class="control-label"></label>
+                <input asp-for="CreatedBy" class="form-control" value="@User.Identity?.Name" />
+                <span asp-validation-for="CreatedBy" class="text-danger"></span>
+            </div>
+           
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+@section Scripts {
+    @{await Html.RenderPartialAsync("_ValidationScriptsPartial");}
+}

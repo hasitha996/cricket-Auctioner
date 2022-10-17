@@ -1,0 +1,55 @@
+﻿@model IEnumerable<CrickAuctioner.Models.Team>
+
+@{
+    ViewData["Title"] = "Index";
+}
+
+<h1>Index</h1>
+
+<p>
+    <a class="btn btn-primary" asp-action="Create">Add New Team</a>
+</p>
+<table class="table">
+    <thead>
+        <tr>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamName)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamOwner)
+            </th>
+            <th>
+                @Html.DisplayNameFor(model => model.TeamBudget)
+            </th>
+           
+            <th>
+                @Html.DisplayNameFor(model => model.CreatedOn)
+            </th>
+            <th></th>
+        </tr>
+    </thead>
+    <tbody>
+@foreach (var item in Model) {
+        <tr>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamName)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamOwner)
+            </td>
+            <td>
+                @Html.DisplayFor(modelItem => item.TeamBudget)
+            </td>
+            
+            <td>
+                @Html.DisplayFor(modelItem => item.CreatedOn)
+            </td>
+            <td>
+                <a class="btn btn-primary" asp-action="Edit" asp-route-id="@item.TeamId">Edit</a> |
+                <a class="btn btn-info" asp-action="Details" asp-route-id="@item.TeamId">Details</a> |
+                <a class="btn btn-danger" asp-action="Delete" asp-route-id="@item.TeamId">Delete</a>
+            </td>
+        </tr>
+}
+    </tbody>
+</table>

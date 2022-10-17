@@ -1,0 +1,84 @@
+﻿@model CrickAuctioner.Models.PlayerAccount
+
+@{
+    ViewData["Title"] = "Create Player";
+}
+
+<h1>Create</h1>
+
+<h4>PlayerAccount</h4>
+<hr />
+<div class="row">
+    <div class="col-md-4">
+        <form asp-action="Create">
+            <div asp-validation-summary="ModelOnly" class="text-danger"></div>
+            <div class="form-group">
+                <label asp-for="PlayerName" class="control-label"></label>
+                <input asp-for="PlayerName" class="form-control" />
+                <span asp-validation-for="PlayerName" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerEmail" class="control-label"></label>
+                <input asp-for="PlayerEmail" class="form-control" />
+                <span asp-validation-for="PlayerEmail" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerDOB" class="control-label"></label>
+                <input asp-for="PlayerDOB" class="form-control" />
+                <span asp-validation-for="PlayerDOB" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="Password" class="control-label"></label>
+                <input asp-for="Password" class="form-control" />
+                <span asp-validation-for="Password" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="ConfirmPassword" class="control-label"></label>
+                <input asp-for="ConfirmPassword" class="form-control" />
+                <span asp-validation-for="ConfirmPassword" class="text-danger"></span>
+            </div>
+            <div class="form-group">
+                <label asp-for="PlayerCountry" class="control-label"></label>
+                <select class="form-control" asp-for="PlayerCountry" aria-label="Default select example">
+
+                    <option value="Afghanistan">Afghanistan </option>
+                    <option value="Australia">Australia</option>
+                    <option value="Bangladesh">Bangladesh </option>
+                    <option value="England">England </option>
+                    <option value="India">India</option>
+                    <option value="Ireland">Ireland </option>
+                    <option value="New Zealand">New Zealand </option>
+                    <option value="Pakistan">Pakistan </option>
+                    <option value="South Africa">South Africa </option>
+                    <option value="Sri Lanka">Sri Lanka</option>
+                    <option value="West Indies">West Indies </option>
+                    <option value="Zimbabwe">Zimbabwe</option>
+                </select>
+                <span asp-validation-for="PlayerCountry" class="text-danger"></span>
+
+            </div>
+
+            <div class="form-group">
+                <label asp-for="CreatedOn" class="control-label"></label>
+                <input asp-for="CreatedOn" class="form-control" />
+                <span asp-validation-for="CreatedOn" class="text-danger"></span>
+            </div>
+
+            <div class="form-group">
+                <input type="submit" value="Create" class="btn btn-primary" />
+            </div>
+        </form>
+    </div>
+</div>
+
+<div>
+    <a asp-action="Index">Back to List</a>
+</div>
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    }
